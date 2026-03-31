@@ -3,6 +3,7 @@
 /local.properties
 /.idea
 .DS_Store
+**/build/
 /build
 /captures
 .externalNativeBuild
@@ -12,3 +13,5 @@
 *.ap_
 *.dex
 google-services.json
+*.keystore
+*.jks

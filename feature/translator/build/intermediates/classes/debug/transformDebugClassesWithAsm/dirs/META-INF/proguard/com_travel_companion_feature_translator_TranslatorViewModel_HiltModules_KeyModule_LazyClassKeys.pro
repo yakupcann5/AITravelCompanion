@@ -1,1 +1,0 @@
--keep,allowobfuscation,allowshrinking class com.travel.companion.feature.translator.TranslatorViewModel

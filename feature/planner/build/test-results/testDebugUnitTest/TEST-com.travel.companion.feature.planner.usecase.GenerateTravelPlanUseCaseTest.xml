@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.travel.companion.feature.planner.usecase.GenerateTravelPlanUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-03-31T10:39:52.086Z" hostname="Yakups-MacBook-Pro-5.local" time="0.013">
-  <properties/>
-  <testcase name="propagates network error" classname="com.travel.companion.feature.planner.usecase.GenerateTravelPlanUseCaseTest" time="0.005"/>
-  <testcase name="returns failure when service fails" classname="com.travel.companion.feature.planner.usecase.GenerateTravelPlanUseCaseTest" time="0.004"/>
-  <testcase name="returns plan when service succeeds" classname="com.travel.companion.feature.planner.usecase.GenerateTravelPlanUseCaseTest" time="0.004"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

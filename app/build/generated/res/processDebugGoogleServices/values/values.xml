@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">662895697852</string>
-    <string name="google_api_key" translatable="false">AIzaSyAqDNaUKqhIQBah-2BK5p7-a_nyqBzkTbU</string>
-    <string name="google_app_id" translatable="false">1:662895697852:android:6ef437be2fc35f90cad5b9</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAqDNaUKqhIQBah-2BK5p7-a_nyqBzkTbU</string>
-    <string name="google_storage_bucket" translatable="false">travel-ai-43c2e.firebasestorage.app</string>
-    <string name="project_id" translatable="false">travel-ai-43c2e</string>
-</resources>

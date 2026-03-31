@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.travel.companion.core.ai.firebase.FirebaseAiImageServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-03-28T22:36:36.976Z" hostname="Yakups-MacBook-Pro-5.local" time="0.347">
-  <properties/>
-  <testcase name="isAvailable returns true" classname="com.travel.companion.core.ai.firebase.FirebaseAiImageServiceTest" time="0.347"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
