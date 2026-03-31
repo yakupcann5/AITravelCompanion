@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="tr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExploreState.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">explore</a> &gt; <a href="index.source.html" class="el_package">com.travel.companion.feature.explore</a> &gt; <span class="el_source">ExploreState.kt</span></div><h1>ExploreState.kt</h1><pre class="source lang-java linenums">package com.travel.companion.feature.explore
+
+import com.travel.companion.core.model.City
+
+/**
+ * Kesfet ekrani UI durumu.
+ *
+ * @author Yakup Can
+ * @date 2026-03-27
+ */
+<span class="fc" id="L11">data class ExploreState(</span>
+<span class="fc" id="L12">    val popularCities: List&lt;City&gt; = emptyList(),</span>
+<span class="fc" id="L13">    val recentSearches: List&lt;City&gt; = emptyList(),</span>
+<span class="fc" id="L14">    val searchQuery: String = &quot;&quot;,</span>
+<span class="fc" id="L15">    val searchResult: City? = null,</span>
+<span class="pc" id="L16">    val isLoading: Boolean = false,</span>
+<span class="fc" id="L17">    val isSearching: Boolean = false,</span>
+<span class="fc" id="L18">    val error: String? = null,</span>
+<span class="pc" id="L19">    val detailCityId: String? = null,</span>
+<span class="fc" id="L20">) {</span>
+    val detailCity: City?
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        get() = detailCityId?.let { id -&gt;</span>
+<span class="nc" id="L23">            (popularCities + recentSearches + listOfNotNull(searchResult))</span>
+<span class="nc" id="L24">                .firstOrNull { it.id == id }</span>
+<span class="nc" id="L25">        }</span>
+
+    val filteredPopularCities: List&lt;City&gt;
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        get() = if (searchQuery.isBlank()) {</span>
+<span class="nc" id="L29">            popularCities</span>
+        } else {
+<span class="fc" id="L31">            popularCities.filter { city -&gt;</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">                city.name.contains(searchQuery, ignoreCase = true) ||</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">                    city.country.contains(searchQuery, ignoreCase = true) ||</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">                    city.tags.any { it.contains(searchQuery, ignoreCase = true) }</span>
+            }
+<span class="fc" id="L36">        }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

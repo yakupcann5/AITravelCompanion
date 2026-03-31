@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="tr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetRecentSearchesUseCase.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">explore</a> &gt; <a href="index.source.html" class="el_package">com.travel.companion.feature.explore.usecase</a> &gt; <span class="el_source">GetRecentSearchesUseCase.kt</span></div><h1>GetRecentSearchesUseCase.kt</h1><pre class="source lang-java linenums">package com.travel.companion.feature.explore.usecase
+
+import com.travel.companion.core.data.repository.CityRepository
+import com.travel.companion.core.model.City
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+
+/**
+ * Son aramalari getirme is mantigi use case'i.
+ *
+ * @author Yakup Can
+ * @date 2026-03-27
+ */
+<span class="nc" id="L14">class GetRecentSearchesUseCase @Inject constructor(</span>
+<span class="nc" id="L15">    private val cityRepository: CityRepository,</span>
+) {
+<span class="nc" id="L17">    operator fun invoke(): Flow&lt;List&lt;City&gt;&gt; = cityRepository.getRecentSearches()</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.travel.companion.feature.gallery.usecase.GenerateImageUseCaseTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-03-31T09:08:16.028Z" hostname="Yakups-MacBook-Pro-5.local" time="0.021">
+  <properties/>
+  <testcase name="returns image bytes when service succeeds" classname="com.travel.companion.feature.gallery.usecase.GenerateImageUseCaseTest" time="0.01"/>
+  <testcase name="delegates prompt to service" classname="com.travel.companion.feature.gallery.usecase.GenerateImageUseCaseTest" time="0.004"/>
+  <testcase name="returns failure on rate limit" classname="com.travel.companion.feature.gallery.usecase.GenerateImageUseCaseTest" time="0.003"/>
+  <testcase name="returns failure when service fails" classname="com.travel.companion.feature.gallery.usecase.GenerateImageUseCaseTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

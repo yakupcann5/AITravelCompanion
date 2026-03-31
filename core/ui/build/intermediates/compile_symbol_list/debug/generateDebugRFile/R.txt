@@ -1,0 +1,1 @@
+int string common_retry_button 0x0

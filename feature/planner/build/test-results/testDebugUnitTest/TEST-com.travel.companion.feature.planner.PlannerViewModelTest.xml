@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.travel.companion.feature.planner.PlannerViewModelTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-03-31T10:39:47.560Z" hostname="Yakups-MacBook-Pro-5.local" time="4.523">
+  <properties/>
+  <testcase name="GeneratePlan with success updates travelPlan" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="3.473"/>
+  <testcase name="SetDuration updates state" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.007"/>
+  <testcase name="SavePlan emits PlanSaved" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.723"/>
+  <testcase name="StopVoice sets isVoiceActive to false" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.016"/>
+  <testcase name="ShowVoiceSheet and HideVoiceSheet toggle showVoiceSheet" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.006"/>
+  <testcase name="Voice Error event emits ShowSnackbar effect" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.014"/>
+  <testcase name="ShowPreferences and HidePreferences toggle" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.005"/>
+  <testcase name="SetCityName updates state" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.004"/>
+  <testcase name="SetBudget updates state" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.005"/>
+  <testcase name="StartVoice sets isVoiceActive to true" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.004"/>
+  <testcase name="StartVoice updates voiceTranscript from Transcript event" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.006"/>
+  <testcase name="GeneratePlan with failure sets error" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.007"/>
+  <testcase name="ToggleInterest adds and removes" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.004"/>
+  <testcase name="SelectDay updates index" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.004"/>
+  <testcase name="GeneratePlan with blank city does nothing" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.003"/>
+  <testcase name="init with cityId loads city name" classname="com.travel.companion.feature.planner.PlannerViewModelTest" time="0.239"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

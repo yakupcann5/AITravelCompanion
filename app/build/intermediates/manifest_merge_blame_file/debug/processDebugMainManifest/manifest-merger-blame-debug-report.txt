@@ -1,0 +1,485 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.travel.companion"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:4:5-67
+11-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+12-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:5:5-71
+12-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:5:22-68
+13
+14    <!-- To store the heap dumps and leak analysis results. -->
+15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+15-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:25:5-80
+15-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:25:22-77
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- To allow posting notifications on Android 13 -->
+16-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:26:5-81
+16-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:26:22-78
+17    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Include required permissions for Google Maps API to run. -->
+17-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:29:5-77
+17-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:29:22-74
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:20:5-78
+18-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:20:22-76
+19
+20    <uses-feature
+20-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:22:5-24:33
+21        android:glEsVersion="0x00020000"
+21-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:23:8-40
+22        android:required="true" />
+22-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:24:8-31
+23
+24    <queries>
+24-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:27:5-30:15
+25
+26        <!-- Needs to be explicitly declared on Android R+ -->
+27        <package android:name="com.google.android.apps.maps" />
+27-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:29:7-61
+27-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:29:16-59
+28    </queries>
+29
+30    <permission
+30-->[androidx.core:core:1.16.0] /Users/yakupcan/.gradle/caches/8.13/transforms/538fb8a8f6a4e8e14138f2e3a42c3761/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+31        android:name="com.travel.companion.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+31-->[androidx.core:core:1.16.0] /Users/yakupcan/.gradle/caches/8.13/transforms/538fb8a8f6a4e8e14138f2e3a42c3761/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+32        android:protectionLevel="signature" />
+32-->[androidx.core:core:1.16.0] /Users/yakupcan/.gradle/caches/8.13/transforms/538fb8a8f6a4e8e14138f2e3a42c3761/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+33
+34    <uses-permission android:name="com.travel.companion.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+34-->[androidx.core:core:1.16.0] /Users/yakupcan/.gradle/caches/8.13/transforms/538fb8a8f6a4e8e14138f2e3a42c3761/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+34-->[androidx.core:core:1.16.0] /Users/yakupcan/.gradle/caches/8.13/transforms/538fb8a8f6a4e8e14138f2e3a42c3761/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+35
+36    <application
+36-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:7:5-45:19
+37        android:name="com.travel.companion.TravelApplication"
+37-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:8:9-42
+38        android:allowBackup="false"
+38-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:9:9-36
+39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+39-->[androidx.core:core:1.16.0] /Users/yakupcan/.gradle/caches/8.13/transforms/538fb8a8f6a4e8e14138f2e3a42c3761/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+40        android:debuggable="true"
+41        android:enableOnBackInvokedCallback="true"
+41-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:14:9-51
+42        android:extractNativeLibs="false"
+43        android:icon="@mipmap/ic_launcher"
+43-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:10:9-43
+44        android:label="@string/app_name"
+44-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:11:9-41
+45        android:supportsRtl="true"
+45-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:12:9-35
+46        android:testOnly="true"
+47        android:theme="@style/Theme.TravelCompanion" >
+47-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:13:9-53
+48        <meta-data
+49            android:name="com.google.android.geo.API_KEY"
+49-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:17:13-58
+50            android:value="" />
+50-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:18:13-44
+51
+52        <activity
+52-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:20:9-44:20
+53            android:name="com.travel.companion.MainActivity"
+53-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:21:13-41
+54            android:exported="true"
+54-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:22:13-36
+55            android:theme="@style/Theme.TravelCompanion" >
+55-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:23:13-57
+56            <intent-filter>
+56-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:24:13-27:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:25:17-69
+57-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:25:25-66
+58
+59                <category android:name="android.intent.category.LAUNCHER" />
+59-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:26:17-77
+59-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:26:27-74
+60            </intent-filter>
+61            <intent-filter>
+61-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:28:13-35:29
+62                <action android:name="android.intent.action.VIEW" />
+62-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:29:17-69
+62-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:29:25-66
+63
+64                <category android:name="android.intent.category.DEFAULT" />
+64-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:30:17-76
+64-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:30:27-73
+65                <category android:name="android.intent.category.BROWSABLE" />
+65-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:31:17-78
+65-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:31:27-75
+66
+67                <data
+67-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+68                    android:host="explore"
+68-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:34:21-43
+69                    android:scheme="travelcompanion" />
+69-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:33:21-53
+70            </intent-filter>
+71            <intent-filter>
+71-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:36:13-43:29
+72                <action android:name="android.intent.action.VIEW" />
+72-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:29:17-69
+72-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:29:25-66
+73
+74                <category android:name="android.intent.category.DEFAULT" />
+74-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:30:17-76
+74-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:30:27-73
+75                <category android:name="android.intent.category.BROWSABLE" />
+75-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:31:17-78
+75-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:31:27-75
+76
+77                <data
+77-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+78                    android:host="planner"
+78-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:34:21-43
+79                    android:scheme="travelcompanion" />
+79-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:33:21-53
+80            </intent-filter>
+81        </activity>
+82
+83        <provider
+83-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:32:9-40:20
+84            android:name="leakcanary.internal.LeakCanaryFileProvider"
+84-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:33:13-70
+85            android:authorities="com.squareup.leakcanary.fileprovider.com.travel.companion"
+85-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:34:13-88
+86            android:exported="false"
+86-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:35:13-37
+87            android:grantUriPermissions="true" >
+87-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:36:13-47
+88            <meta-data
+88-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:37:13-39:66
+89                android:name="android.support.FILE_PROVIDER_PATHS"
+89-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:38:17-67
+90                android:resource="@xml/leak_canary_file_paths" />
+90-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:39:17-63
+91        </provider>
+92
+93        <activity
+93-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:42:9-73:20
+94            android:name="leakcanary.internal.activity.LeakActivity"
+94-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:43:13-69
+95            android:exported="true"
+95-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:44:13-36
+96            android:icon="@mipmap/leak_canary_icon"
+96-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:45:13-52
+97            android:label="@string/leak_canary_display_activity_label"
+97-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:46:13-71
+98            android:taskAffinity="com.squareup.leakcanary.com.travel.companion"
+98-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:47:13-76
+99            android:theme="@style/leak_canary_LeakCanary.Base" >
+99-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:48:13-63
+100            <intent-filter android:label="@string/leak_canary_import_hprof_file" >
+100-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:49:13-72:29
+100-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:49:28-81
+101                <action android:name="android.intent.action.VIEW" />
+101-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:29:17-69
+101-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:29:25-66
+102
+103                <category android:name="android.intent.category.DEFAULT" />
+103-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:30:17-76
+103-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:30:27-73
+104                <category android:name="android.intent.category.BROWSABLE" />
+104-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:31:17-78
+104-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:31:27-75
+105
+106                <data android:scheme="file" />
+106-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+106-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:33:21-53
+107                <data android:scheme="content" />
+107-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+107-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:33:21-53
+108                <data android:mimeType="*/*" />
+108-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+109                <data android:host="*" />
+109-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+109-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:34:21-43
+110                <data android:pathPattern=".*\\.hprof" />
+110-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+111                <data android:pathPattern=".*\\..*\\.hprof" />
+111-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+112                <data android:pathPattern=".*\\..*\\..*\\.hprof" />
+112-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+113                <data android:pathPattern=".*\\..*\\..*\\..*\\.hprof" />
+113-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+114                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.hprof" />
+114-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+115                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.hprof" />
+115-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+116                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.hprof" />
+116-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:32:17-34:46
+117                <!--
+118            Since hprof isn't a standard MIME type, we have to declare such patterns.
+119            Most file providers will generate URIs including their own package name,
+120            which contains `.` characters that must be explicitly escaped in pathPattern.
+121            @see https://stackoverflow.com/a/31028507/703646
+122                -->
+123            </intent-filter>
+124        </activity>
+125
+126        <activity-alias
+126-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:75:9-92:26
+127            android:name="leakcanary.internal.activity.LeakLauncherActivity"
+127-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:76:13-77
+128            android:banner="@drawable/leak_canary_tv_icon"
+128-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:77:13-59
+129            android:enabled="@bool/leak_canary_add_launcher_icon"
+129-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:78:13-66
+130            android:exported="true"
+130-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:79:13-36
+131            android:icon="@mipmap/leak_canary_icon"
+131-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:80:13-52
+132            android:label="@string/leak_canary_display_activity_label"
+132-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:81:13-71
+133            android:targetActivity="leakcanary.internal.activity.LeakActivity"
+133-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:82:13-79
+134            android:taskAffinity="com.squareup.leakcanary.com.travel.companion"
+134-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:83:13-76
+135            android:theme="@style/leak_canary_LeakCanary.Base" >
+135-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:84:13-63
+136            <intent-filter>
+136-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:85:13-91:29
+137                <action android:name="android.intent.action.MAIN" />
+137-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:25:17-69
+137-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:25:25-66
+138
+139                <category android:name="android.intent.category.LAUNCHER" />
+139-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:26:17-77
+139-->/Users/yakupcan/AndroidStudioProjects/AI/app/src/main/AndroidManifest.xml:26:27-74
+140                <!-- Android TV launcher intent -->
+141                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+141-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:90:17-86
+141-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:90:27-83
+142            </intent-filter>
+143        </activity-alias>
+144
+145        <activity
+145-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:94:9-100:68
+146            android:name="leakcanary.internal.RequestPermissionActivity"
+146-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:95:13-73
+147            android:excludeFromRecents="true"
+147-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:96:13-46
+148            android:icon="@mipmap/leak_canary_icon"
+148-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:97:13-52
+149            android:label="@string/leak_canary_storage_permission_activity_label"
+149-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:98:13-82
+150            android:taskAffinity="com.squareup.leakcanary.com.travel.companion"
+150-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:99:13-76
+151            android:theme="@style/leak_canary_Theme.Transparent" />
+151-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:100:13-65
+152
+153        <receiver android:name="leakcanary.internal.NotificationReceiver" />
+153-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:102:9-77
+153-->[com.squareup.leakcanary:leakcanary-android-core:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/163151060918402dc79f9ed14ee368f4/transformed/leakcanary-android-core-2.14/AndroidManifest.xml:102:19-74
+154
+155        <provider
+155-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/888f3f6c4527738c561fcd2abd5eb6d2/transformed/leakcanary-object-watcher-android-2.14/AndroidManifest.xml:8:9-12:40
+156            android:name="leakcanary.internal.MainProcessAppWatcherInstaller"
+156-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/888f3f6c4527738c561fcd2abd5eb6d2/transformed/leakcanary-object-watcher-android-2.14/AndroidManifest.xml:9:13-78
+157            android:authorities="com.travel.companion.leakcanary-installer"
+157-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/888f3f6c4527738c561fcd2abd5eb6d2/transformed/leakcanary-object-watcher-android-2.14/AndroidManifest.xml:10:13-72
+158            android:enabled="@bool/leak_canary_watcher_auto_install"
+158-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/888f3f6c4527738c561fcd2abd5eb6d2/transformed/leakcanary-object-watcher-android-2.14/AndroidManifest.xml:11:13-69
+159            android:exported="false" />
+159-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/888f3f6c4527738c561fcd2abd5eb6d2/transformed/leakcanary-object-watcher-android-2.14/AndroidManifest.xml:12:13-37
+160        <provider
+160-->[com.squareup.leakcanary:plumber-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/bcca72095d29581c913a1fd147629b79/transformed/plumber-android-2.14/AndroidManifest.xml:8:9-12:40
+161            android:name="leakcanary.internal.PlumberInstaller"
+161-->[com.squareup.leakcanary:plumber-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/bcca72095d29581c913a1fd147629b79/transformed/plumber-android-2.14/AndroidManifest.xml:9:13-64
+162            android:authorities="com.travel.companion.plumber-installer"
+162-->[com.squareup.leakcanary:plumber-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/bcca72095d29581c913a1fd147629b79/transformed/plumber-android-2.14/AndroidManifest.xml:10:13-69
+163            android:enabled="@bool/leak_canary_plumber_auto_install"
+163-->[com.squareup.leakcanary:plumber-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/bcca72095d29581c913a1fd147629b79/transformed/plumber-android-2.14/AndroidManifest.xml:11:13-69
+164            android:exported="false" />
+164-->[com.squareup.leakcanary:plumber-android:2.14] /Users/yakupcan/.gradle/caches/8.13/transforms/bcca72095d29581c913a1fd147629b79/transformed/plumber-android-2.14/AndroidManifest.xml:12:13-37
+165
+166        <service
+166-->[androidx.room:room-runtime-android:2.7.1] /Users/yakupcan/.gradle/caches/8.13/transforms/04841d7837cf54720b3c9516bb12b940/transformed/room-runtime-release/AndroidManifest.xml:24:9-28:63
+167            android:name="androidx.room.MultiInstanceInvalidationService"
+167-->[androidx.room:room-runtime-android:2.7.1] /Users/yakupcan/.gradle/caches/8.13/transforms/04841d7837cf54720b3c9516bb12b940/transformed/room-runtime-release/AndroidManifest.xml:25:13-74
+168            android:directBootAware="true"
+168-->[androidx.room:room-runtime-android:2.7.1] /Users/yakupcan/.gradle/caches/8.13/transforms/04841d7837cf54720b3c9516bb12b940/transformed/room-runtime-release/AndroidManifest.xml:26:13-43
+169            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+169-->[androidx.room:room-runtime-android:2.7.1] /Users/yakupcan/.gradle/caches/8.13/transforms/04841d7837cf54720b3c9516bb12b940/transformed/room-runtime-release/AndroidManifest.xml:27:13-37
+170        <uses-library
+170-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:33:7-86
+171            android:name="org.apache.http.legacy"
+171-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:33:21-58
+172            android:required="false" />
+172-->[com.google.android.gms:play-services-maps:19.1.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d55550657ea05f3f22d7de50ba48d7ad/transformed/play-services-maps-19.1.0/AndroidManifest.xml:33:59-83
+173
+174        <service
+174-->[com.google.firebase:firebase-appcheck-debug:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/3df16e3695d3043883bf932fabb616cc/transformed/firebase-appcheck-debug-18.0.0/AndroidManifest.xml:22:9-28:19
+175            android:name="com.google.firebase.components.ComponentDiscoveryService"
+175-->[com.google.firebase:firebase-appcheck-debug:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/3df16e3695d3043883bf932fabb616cc/transformed/firebase-appcheck-debug-18.0.0/AndroidManifest.xml:23:13-84
+176            android:directBootAware="true"
+176-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+177            android:exported="false" >
+177-->[com.google.firebase:firebase-appcheck-debug:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/3df16e3695d3043883bf932fabb616cc/transformed/firebase-appcheck-debug-18.0.0/AndroidManifest.xml:24:13-37
+178            <meta-data
+178-->[com.google.firebase:firebase-appcheck-debug:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/3df16e3695d3043883bf932fabb616cc/transformed/firebase-appcheck-debug-18.0.0/AndroidManifest.xml:25:13-27:85
+179                android:name="com.google.firebase.components:com.google.firebase.appcheck.debug.FirebaseAppCheckDebugRegistrar"
+179-->[com.google.firebase:firebase-appcheck-debug:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/3df16e3695d3043883bf932fabb616cc/transformed/firebase-appcheck-debug-18.0.0/AndroidManifest.xml:26:17-128
+180                android:value="com.google.firebase.components.ComponentRegistrar" />
+180-->[com.google.firebase:firebase-appcheck-debug:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/3df16e3695d3043883bf932fabb616cc/transformed/firebase-appcheck-debug-18.0.0/AndroidManifest.xml:27:17-82
+181            <meta-data
+181-->[com.google.firebase:firebase-appcheck-playintegrity:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/6a32f2d67a894daf362b3cbefbcdf641/transformed/firebase-appcheck-playintegrity-18.0.0/AndroidManifest.xml:25:13-27:85
+182                android:name="com.google.firebase.components:com.google.firebase.appcheck.playintegrity.FirebaseAppCheckPlayIntegrityRegistrar"
+182-->[com.google.firebase:firebase-appcheck-playintegrity:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/6a32f2d67a894daf362b3cbefbcdf641/transformed/firebase-appcheck-playintegrity-18.0.0/AndroidManifest.xml:26:17-144
+183                android:value="com.google.firebase.components.ComponentRegistrar" />
+183-->[com.google.firebase:firebase-appcheck-playintegrity:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/6a32f2d67a894daf362b3cbefbcdf641/transformed/firebase-appcheck-playintegrity-18.0.0/AndroidManifest.xml:27:17-82
+184            <meta-data
+184-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/f3391dcea09c12b1679955434c321b1f/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:25:13-27:85
+185                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
+185-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/f3391dcea09c12b1679955434c321b1f/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:26:17-120
+186                android:value="com.google.firebase.components.ComponentRegistrar" />
+186-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/f3391dcea09c12b1679955434c321b1f/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:27:17-82
+187            <meta-data
+187-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/f3391dcea09c12b1679955434c321b1f/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:28:13-30:85
+188                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
+188-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/f3391dcea09c12b1679955434c321b1f/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:29:17-117
+189                android:value="com.google.firebase.components.ComponentRegistrar" />
+189-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/f3391dcea09c12b1679955434c321b1f/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:30:17-82
+190            <meta-data
+190-->[com.google.firebase:firebase-ai:16.2.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d765a00b816671aeebd2231037c9d59e/transformed/firebase-ai-16.2.0/AndroidManifest.xml:31:13-33:85
+191                android:name="com.google.firebase.components:com.google.firebase.ai.FirebaseAIRegistrar"
+191-->[com.google.firebase:firebase-ai:16.2.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d765a00b816671aeebd2231037c9d59e/transformed/firebase-ai-16.2.0/AndroidManifest.xml:32:17-105
+192                android:value="com.google.firebase.components.ComponentRegistrar" />
+192-->[com.google.firebase:firebase-ai:16.2.0] /Users/yakupcan/.gradle/caches/8.13/transforms/d765a00b816671aeebd2231037c9d59e/transformed/firebase-ai-16.2.0/AndroidManifest.xml:33:17-82
+193            <meta-data
+193-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/40d8ccccf993830aa6f6a15e32ca6f20/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+194                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+194-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/40d8ccccf993830aa6f6a15e32ca6f20/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+195                android:value="com.google.firebase.components.ComponentRegistrar" />
+195-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/40d8ccccf993830aa6f6a15e32ca6f20/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+196            <meta-data
+196-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+197                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+197-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+198                android:value="com.google.firebase.components.ComponentRegistrar" />
+198-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+199        </service>
+200
+201        <activity
+201-->[com.google.android.gms:play-services-base:18.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e89c023b4270a3b77c009eebb4257092/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+202            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+202-->[com.google.android.gms:play-services-base:18.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e89c023b4270a3b77c009eebb4257092/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+203            android:exported="false"
+203-->[com.google.android.gms:play-services-base:18.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e89c023b4270a3b77c009eebb4257092/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+204            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+204-->[com.google.android.gms:play-services-base:18.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e89c023b4270a3b77c009eebb4257092/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+205
+206        <provider
+206-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+207            android:name="com.google.firebase.provider.FirebaseInitProvider"
+207-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+208            android:authorities="com.travel.companion.firebaseinitprovider"
+208-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+209            android:directBootAware="true"
+209-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+210            android:exported="false"
+210-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+211            android:initOrder="100" />
+211-->[com.google.firebase:firebase-common:21.0.0] /Users/yakupcan/.gradle/caches/8.13/transforms/e537700e664eaaeeaa9e8304f53a6fde/transformed/firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+212
+213        <activity
+213-->[androidx.compose.ui:ui-tooling-android:1.11.0-beta02] /Users/yakupcan/.gradle/caches/8.13/transforms/859fdee669f38251c5d598332f9b1431/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+214            android:name="androidx.compose.ui.tooling.PreviewActivity"
+214-->[androidx.compose.ui:ui-tooling-android:1.11.0-beta02] /Users/yakupcan/.gradle/caches/8.13/transforms/859fdee669f38251c5d598332f9b1431/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+215            android:exported="true" />
+215-->[androidx.compose.ui:ui-tooling-android:1.11.0-beta02] /Users/yakupcan/.gradle/caches/8.13/transforms/859fdee669f38251c5d598332f9b1431/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+216
+217        <provider
+217-->[androidx.emoji2:emoji2:1.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/fec9c6a67b7a25c8334b1a55305968b5/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+218            android:name="androidx.startup.InitializationProvider"
+218-->[androidx.emoji2:emoji2:1.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/fec9c6a67b7a25c8334b1a55305968b5/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+219            android:authorities="com.travel.companion.androidx-startup"
+219-->[androidx.emoji2:emoji2:1.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/fec9c6a67b7a25c8334b1a55305968b5/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+220            android:exported="false" >
+220-->[androidx.emoji2:emoji2:1.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/fec9c6a67b7a25c8334b1a55305968b5/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+221            <meta-data
+221-->[androidx.emoji2:emoji2:1.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/fec9c6a67b7a25c8334b1a55305968b5/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+222                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+222-->[androidx.emoji2:emoji2:1.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/fec9c6a67b7a25c8334b1a55305968b5/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+223                android:value="androidx.startup" />
+223-->[androidx.emoji2:emoji2:1.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/fec9c6a67b7a25c8334b1a55305968b5/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+224            <meta-data
+224-->[androidx.lifecycle:lifecycle-process:2.11.0-alpha03] /Users/yakupcan/.gradle/caches/8.13/transforms/1b65c6de9c7d29279708d977cc7e07b3/transformed/lifecycle-process-2.11.0-alpha03/AndroidManifest.xml:29:13-31:52
+225                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+225-->[androidx.lifecycle:lifecycle-process:2.11.0-alpha03] /Users/yakupcan/.gradle/caches/8.13/transforms/1b65c6de9c7d29279708d977cc7e07b3/transformed/lifecycle-process-2.11.0-alpha03/AndroidManifest.xml:30:17-78
+226                android:value="androidx.startup" />
+226-->[androidx.lifecycle:lifecycle-process:2.11.0-alpha03] /Users/yakupcan/.gradle/caches/8.13/transforms/1b65c6de9c7d29279708d977cc7e07b3/transformed/lifecycle-process-2.11.0-alpha03/AndroidManifest.xml:31:17-49
+227            <meta-data
+227-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:29:13-31:52
+228                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+228-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:30:17-85
+229                android:value="androidx.startup" />
+229-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:31:17-49
+230        </provider>
+231
+232        <uses-library
+232-->[androidx.window:window:1.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/da840a46787a37561449d95cc2f8d2fd/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+233            android:name="androidx.window.extensions"
+233-->[androidx.window:window:1.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/da840a46787a37561449d95cc2f8d2fd/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+234            android:required="false" />
+234-->[androidx.window:window:1.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/da840a46787a37561449d95cc2f8d2fd/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+235        <uses-library
+235-->[androidx.window:window:1.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/da840a46787a37561449d95cc2f8d2fd/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+236            android:name="androidx.window.sidecar"
+236-->[androidx.window:window:1.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/da840a46787a37561449d95cc2f8d2fd/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+237            android:required="false" />
+237-->[androidx.window:window:1.5.0] /Users/yakupcan/.gradle/caches/8.13/transforms/da840a46787a37561449d95cc2f8d2fd/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+238
+239        <receiver
+239-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:34:9-52:20
+240            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+240-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:35:13-76
+241            android:directBootAware="false"
+241-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:36:13-44
+242            android:enabled="true"
+242-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:37:13-35
+243            android:exported="true"
+243-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:38:13-36
+244            android:permission="android.permission.DUMP" >
+244-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:39:13-57
+245            <intent-filter>
+245-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:40:13-42:29
+246                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+246-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:41:17-91
+246-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:41:25-88
+247            </intent-filter>
+248            <intent-filter>
+248-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:43:13-45:29
+249                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+249-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:44:17-85
+249-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:44:25-82
+250            </intent-filter>
+251            <intent-filter>
+251-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:46:13-48:29
+252                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+252-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:47:17-88
+252-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:47:25-85
+253            </intent-filter>
+254            <intent-filter>
+254-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:49:13-51:29
+255                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+255-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:50:17-95
+255-->[androidx.profileinstaller:profileinstaller:1.4.1] /Users/yakupcan/.gradle/caches/8.13/transforms/d56e5920a3417eb2dd37f49b25fc446c/transformed/profileinstaller-1.4.1/AndroidManifest.xml:50:25-92
+256            </intent-filter>
+257        </receiver>
+258
+259        <meta-data
+259-->[com.google.android.gms:play-services-basement:18.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/c1fbdf2c38b7d1052647254dc889f214/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+260            android:name="com.google.android.gms.version"
+260-->[com.google.android.gms:play-services-basement:18.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/c1fbdf2c38b7d1052647254dc889f214/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+261            android:value="@integer/google_play_services_version" />
+261-->[com.google.android.gms:play-services-basement:18.4.0] /Users/yakupcan/.gradle/caches/8.13/transforms/c1fbdf2c38b7d1052647254dc889f214/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+262    </application>
+263
+264</manifest>

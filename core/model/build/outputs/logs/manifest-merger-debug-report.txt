@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml:2:13-83
+INJECTED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml:2:13-83
+	package
+		INJECTED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml
+	xmlns:android
+		ADDED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml:2:23-81
+uses-sdk
+INJECTED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml reason: use-sdk injection requested
+INJECTED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml
+INJECTED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml
+	android:targetSdkVersion
+		INJECTED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml
+	android:minSdkVersion
+		INJECTED from /Users/yakupcan/AndroidStudioProjects/AI/core/model/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11319659007514190439.xml

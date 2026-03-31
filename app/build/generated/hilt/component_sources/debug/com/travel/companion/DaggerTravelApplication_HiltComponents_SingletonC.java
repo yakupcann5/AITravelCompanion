@@ -1,0 +1,750 @@
+package com.travel.companion;
+
+import android.app.Activity;
+import android.app.Service;
+import android.view.View;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.SavedStateHandle;
+import androidx.lifecycle.ViewModel;
+import com.travel.companion.core.ai.firebase.FirebaseAiCityService;
+import com.travel.companion.core.ai.firebase.FirebaseAiImageService;
+import com.travel.companion.core.ai.firebase.FirebaseAiPlannerService;
+import com.travel.companion.core.ai.ondevice.FeatureAvailabilityChecker;
+import com.travel.companion.core.ai.ondevice.HybridAiTextService;
+import com.travel.companion.core.ai.voice.FakeVoiceAssistantService;
+import com.travel.companion.core.common.di.DispatchersModule_ProvideIoDispatcherFactory;
+import com.travel.companion.core.data.prepopulate.CityPrepopulator;
+import com.travel.companion.core.data.repository.OfflineFirstCityRepository;
+import com.travel.companion.core.data.repository.OfflineFirstGeneratedImageRepository;
+import com.travel.companion.core.data.repository.OfflineFirstTranslationHistoryRepository;
+import com.travel.companion.core.data.repository.OfflineFirstTravelPlanRepository;
+import com.travel.companion.core.database.TravelDatabase;
+import com.travel.companion.core.database.dao.CityDao;
+import com.travel.companion.core.database.dao.GeneratedImageDao;
+import com.travel.companion.core.database.dao.TranslationHistoryDao;
+import com.travel.companion.core.database.dao.TravelPlanDao;
+import com.travel.companion.core.database.di.DatabaseModule_ProvideCityDaoFactory;
+import com.travel.companion.core.database.di.DatabaseModule_ProvideDatabaseFactory;
+import com.travel.companion.core.database.di.DatabaseModule_ProvideGeneratedImageDaoFactory;
+import com.travel.companion.core.database.di.DatabaseModule_ProvideTranslationHistoryDaoFactory;
+import com.travel.companion.core.database.di.DatabaseModule_ProvideTravelPlanDaoFactory;
+import com.travel.companion.feature.explore.ExploreViewModel;
+import com.travel.companion.feature.explore.ExploreViewModel_HiltModules;
+import com.travel.companion.feature.explore.ExploreViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.travel.companion.feature.explore.ExploreViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.travel.companion.feature.explore.usecase.GetPopularCitiesUseCase;
+import com.travel.companion.feature.explore.usecase.GetRecentSearchesUseCase;
+import com.travel.companion.feature.explore.usecase.SearchCityWithAiUseCase;
+import com.travel.companion.feature.gallery.GalleryViewModel;
+import com.travel.companion.feature.gallery.GalleryViewModel_HiltModules;
+import com.travel.companion.feature.gallery.GalleryViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.travel.companion.feature.gallery.GalleryViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.travel.companion.feature.gallery.usecase.GenerateImageUseCase;
+import com.travel.companion.feature.planner.PlannerViewModel;
+import com.travel.companion.feature.planner.PlannerViewModel_HiltModules;
+import com.travel.companion.feature.planner.PlannerViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.travel.companion.feature.planner.PlannerViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.travel.companion.feature.planner.usecase.GenerateTravelPlanUseCase;
+import com.travel.companion.feature.planner.usecase.SaveTravelPlanUseCase;
+import com.travel.companion.feature.translator.TranslatorViewModel;
+import com.travel.companion.feature.translator.TranslatorViewModel_HiltModules;
+import com.travel.companion.feature.translator.TranslatorViewModel_HiltModules_BindsModule_Binds_LazyMapKey;
+import com.travel.companion.feature.translator.TranslatorViewModel_HiltModules_KeyModule_Provide_LazyMapKey;
+import com.travel.companion.feature.translator.usecase.TranslateTextUseCase;
+import dagger.hilt.android.ActivityRetainedLifecycle;
+import dagger.hilt.android.ViewModelLifecycle;
+import dagger.hilt.android.internal.builders.ActivityComponentBuilder;
+import dagger.hilt.android.internal.builders.ActivityRetainedComponentBuilder;
+import dagger.hilt.android.internal.builders.FragmentComponentBuilder;
+import dagger.hilt.android.internal.builders.ServiceComponentBuilder;
+import dagger.hilt.android.internal.builders.ViewComponentBuilder;
+import dagger.hilt.android.internal.builders.ViewModelComponentBuilder;
+import dagger.hilt.android.internal.builders.ViewWithFragmentComponentBuilder;
+import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories;
+import dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories_InternalFactoryFactory_Factory;
+import dagger.hilt.android.internal.managers.ActivityRetainedComponentManager_LifecycleModule_ProvideActivityRetainedLifecycleFactory;
+import dagger.hilt.android.internal.managers.SavedStateHandleHolder;
+import dagger.hilt.android.internal.modules.ApplicationContextModule;
+import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideContextFactory;
+import dagger.internal.DaggerGenerated;
+import dagger.internal.DoubleCheck;
+import dagger.internal.LazyClassKeyMap;
+import dagger.internal.MapBuilder;
+import dagger.internal.Preconditions;
+import dagger.internal.Provider;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+import javax.annotation.processing.Generated;
+
+@DaggerGenerated
+@Generated(
+    value = "dagger.internal.codegen.ComponentProcessor",
+    comments = "https://dagger.dev"
+)
+@SuppressWarnings({
+    "unchecked",
+    "rawtypes",
+    "KotlinInternal",
+    "KotlinInternalInJava",
+    "cast",
+    "deprecation",
+    "nullness:initialization.field.uninitialized"
+})
+public final class DaggerTravelApplication_HiltComponents_SingletonC {
+  private DaggerTravelApplication_HiltComponents_SingletonC() {
+  }
+
+  public static Builder builder() {
+    return new Builder();
+  }
+
+  public static final class Builder {
+    private ApplicationContextModule applicationContextModule;
+
+    private Builder() {
+    }
+
+    public Builder applicationContextModule(ApplicationContextModule applicationContextModule) {
+      this.applicationContextModule = Preconditions.checkNotNull(applicationContextModule);
+      return this;
+    }
+
+    public TravelApplication_HiltComponents.SingletonC build() {
+      Preconditions.checkBuilderRequirement(applicationContextModule, ApplicationContextModule.class);
+      return new SingletonCImpl(applicationContextModule);
+    }
+  }
+
+  private static final class ActivityRetainedCBuilder implements TravelApplication_HiltComponents.ActivityRetainedC.Builder {
+    private final SingletonCImpl singletonCImpl;
+
+    private SavedStateHandleHolder savedStateHandleHolder;
+
+    private ActivityRetainedCBuilder(SingletonCImpl singletonCImpl) {
+      this.singletonCImpl = singletonCImpl;
+    }
+
+    @Override
+    public ActivityRetainedCBuilder savedStateHandleHolder(
+        SavedStateHandleHolder savedStateHandleHolder) {
+      this.savedStateHandleHolder = Preconditions.checkNotNull(savedStateHandleHolder);
+      return this;
+    }
+
+    @Override
+    public TravelApplication_HiltComponents.ActivityRetainedC build() {
+      Preconditions.checkBuilderRequirement(savedStateHandleHolder, SavedStateHandleHolder.class);
+      return new ActivityRetainedCImpl(singletonCImpl, savedStateHandleHolder);
+    }
+  }
+
+  private static final class ActivityCBuilder implements TravelApplication_HiltComponents.ActivityC.Builder {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private Activity activity;
+
+    private ActivityCBuilder(SingletonCImpl singletonCImpl,
+        ActivityRetainedCImpl activityRetainedCImpl) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+    }
+
+    @Override
+    public ActivityCBuilder activity(Activity activity) {
+      this.activity = Preconditions.checkNotNull(activity);
+      return this;
+    }
+
+    @Override
+    public TravelApplication_HiltComponents.ActivityC build() {
+      Preconditions.checkBuilderRequirement(activity, Activity.class);
+      return new ActivityCImpl(singletonCImpl, activityRetainedCImpl, activity);
+    }
+  }
+
+  private static final class FragmentCBuilder implements TravelApplication_HiltComponents.FragmentC.Builder {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private final ActivityCImpl activityCImpl;
+
+    private Fragment fragment;
+
+    private FragmentCBuilder(SingletonCImpl singletonCImpl,
+        ActivityRetainedCImpl activityRetainedCImpl, ActivityCImpl activityCImpl) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+      this.activityCImpl = activityCImpl;
+    }
+
+    @Override
+    public FragmentCBuilder fragment(Fragment fragment) {
+      this.fragment = Preconditions.checkNotNull(fragment);
+      return this;
+    }
+
+    @Override
+    public TravelApplication_HiltComponents.FragmentC build() {
+      Preconditions.checkBuilderRequirement(fragment, Fragment.class);
+      return new FragmentCImpl(singletonCImpl, activityRetainedCImpl, activityCImpl, fragment);
+    }
+  }
+
+  private static final class ViewWithFragmentCBuilder implements TravelApplication_HiltComponents.ViewWithFragmentC.Builder {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private final ActivityCImpl activityCImpl;
+
+    private final FragmentCImpl fragmentCImpl;
+
+    private View view;
+
+    private ViewWithFragmentCBuilder(SingletonCImpl singletonCImpl,
+        ActivityRetainedCImpl activityRetainedCImpl, ActivityCImpl activityCImpl,
+        FragmentCImpl fragmentCImpl) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+      this.activityCImpl = activityCImpl;
+      this.fragmentCImpl = fragmentCImpl;
+    }
+
+    @Override
+    public ViewWithFragmentCBuilder view(View view) {
+      this.view = Preconditions.checkNotNull(view);
+      return this;
+    }
+
+    @Override
+    public TravelApplication_HiltComponents.ViewWithFragmentC build() {
+      Preconditions.checkBuilderRequirement(view, View.class);
+      return new ViewWithFragmentCImpl(singletonCImpl, activityRetainedCImpl, activityCImpl, fragmentCImpl, view);
+    }
+  }
+
+  private static final class ViewCBuilder implements TravelApplication_HiltComponents.ViewC.Builder {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private final ActivityCImpl activityCImpl;
+
+    private View view;
+
+    private ViewCBuilder(SingletonCImpl singletonCImpl, ActivityRetainedCImpl activityRetainedCImpl,
+        ActivityCImpl activityCImpl) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+      this.activityCImpl = activityCImpl;
+    }
+
+    @Override
+    public ViewCBuilder view(View view) {
+      this.view = Preconditions.checkNotNull(view);
+      return this;
+    }
+
+    @Override
+    public TravelApplication_HiltComponents.ViewC build() {
+      Preconditions.checkBuilderRequirement(view, View.class);
+      return new ViewCImpl(singletonCImpl, activityRetainedCImpl, activityCImpl, view);
+    }
+  }
+
+  private static final class ViewModelCBuilder implements TravelApplication_HiltComponents.ViewModelC.Builder {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private SavedStateHandle savedStateHandle;
+
+    private ViewModelLifecycle viewModelLifecycle;
+
+    private ViewModelCBuilder(SingletonCImpl singletonCImpl,
+        ActivityRetainedCImpl activityRetainedCImpl) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+    }
+
+    @Override
+    public ViewModelCBuilder savedStateHandle(SavedStateHandle handle) {
+      this.savedStateHandle = Preconditions.checkNotNull(handle);
+      return this;
+    }
+
+    @Override
+    public ViewModelCBuilder viewModelLifecycle(ViewModelLifecycle viewModelLifecycle) {
+      this.viewModelLifecycle = Preconditions.checkNotNull(viewModelLifecycle);
+      return this;
+    }
+
+    @Override
+    public TravelApplication_HiltComponents.ViewModelC build() {
+      Preconditions.checkBuilderRequirement(savedStateHandle, SavedStateHandle.class);
+      Preconditions.checkBuilderRequirement(viewModelLifecycle, ViewModelLifecycle.class);
+      return new ViewModelCImpl(singletonCImpl, activityRetainedCImpl, savedStateHandle, viewModelLifecycle);
+    }
+  }
+
+  private static final class ServiceCBuilder implements TravelApplication_HiltComponents.ServiceC.Builder {
+    private final SingletonCImpl singletonCImpl;
+
+    private Service service;
+
+    private ServiceCBuilder(SingletonCImpl singletonCImpl) {
+      this.singletonCImpl = singletonCImpl;
+    }
+
+    @Override
+    public ServiceCBuilder service(Service service) {
+      this.service = Preconditions.checkNotNull(service);
+      return this;
+    }
+
+    @Override
+    public TravelApplication_HiltComponents.ServiceC build() {
+      Preconditions.checkBuilderRequirement(service, Service.class);
+      return new ServiceCImpl(singletonCImpl, service);
+    }
+  }
+
+  private static final class ViewWithFragmentCImpl extends TravelApplication_HiltComponents.ViewWithFragmentC {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private final ActivityCImpl activityCImpl;
+
+    private final FragmentCImpl fragmentCImpl;
+
+    private final ViewWithFragmentCImpl viewWithFragmentCImpl = this;
+
+    private ViewWithFragmentCImpl(SingletonCImpl singletonCImpl,
+        ActivityRetainedCImpl activityRetainedCImpl, ActivityCImpl activityCImpl,
+        FragmentCImpl fragmentCImpl, View viewParam) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+      this.activityCImpl = activityCImpl;
+      this.fragmentCImpl = fragmentCImpl;
+
+
+    }
+  }
+
+  private static final class FragmentCImpl extends TravelApplication_HiltComponents.FragmentC {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private final ActivityCImpl activityCImpl;
+
+    private final FragmentCImpl fragmentCImpl = this;
+
+    private FragmentCImpl(SingletonCImpl singletonCImpl,
+        ActivityRetainedCImpl activityRetainedCImpl, ActivityCImpl activityCImpl,
+        Fragment fragmentParam) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+      this.activityCImpl = activityCImpl;
+
+
+    }
+
+    @Override
+    public DefaultViewModelFactories.InternalFactoryFactory getHiltInternalFactoryFactory() {
+      return activityCImpl.getHiltInternalFactoryFactory();
+    }
+
+    @Override
+    public ViewWithFragmentComponentBuilder viewWithFragmentComponentBuilder() {
+      return new ViewWithFragmentCBuilder(singletonCImpl, activityRetainedCImpl, activityCImpl, fragmentCImpl);
+    }
+  }
+
+  private static final class ViewCImpl extends TravelApplication_HiltComponents.ViewC {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private final ActivityCImpl activityCImpl;
+
+    private final ViewCImpl viewCImpl = this;
+
+    private ViewCImpl(SingletonCImpl singletonCImpl, ActivityRetainedCImpl activityRetainedCImpl,
+        ActivityCImpl activityCImpl, View viewParam) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+      this.activityCImpl = activityCImpl;
+
+
+    }
+  }
+
+  private static final class ActivityCImpl extends TravelApplication_HiltComponents.ActivityC {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private final ActivityCImpl activityCImpl = this;
+
+    private ActivityCImpl(SingletonCImpl singletonCImpl,
+        ActivityRetainedCImpl activityRetainedCImpl, Activity activityParam) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+
+
+    }
+
+    @Override
+    public void injectMainActivity(MainActivity arg0) {
+    }
+
+    @Override
+    public DefaultViewModelFactories.InternalFactoryFactory getHiltInternalFactoryFactory() {
+      return DefaultViewModelFactories_InternalFactoryFactory_Factory.newInstance(getViewModelKeys(), new ViewModelCBuilder(singletonCImpl, activityRetainedCImpl));
+    }
+
+    @Override
+    public Map<Class<?>, Boolean> getViewModelKeys() {
+      return LazyClassKeyMap.<Boolean>of(MapBuilder.<String, Boolean>newMapBuilder(4).put(ExploreViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, ExploreViewModel_HiltModules.KeyModule.provide()).put(GalleryViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, GalleryViewModel_HiltModules.KeyModule.provide()).put(PlannerViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, PlannerViewModel_HiltModules.KeyModule.provide()).put(TranslatorViewModel_HiltModules_KeyModule_Provide_LazyMapKey.lazyClassKeyName, TranslatorViewModel_HiltModules.KeyModule.provide()).build());
+    }
+
+    @Override
+    public ViewModelComponentBuilder getViewModelComponentBuilder() {
+      return new ViewModelCBuilder(singletonCImpl, activityRetainedCImpl);
+    }
+
+    @Override
+    public FragmentComponentBuilder fragmentComponentBuilder() {
+      return new FragmentCBuilder(singletonCImpl, activityRetainedCImpl, activityCImpl);
+    }
+
+    @Override
+    public ViewComponentBuilder viewComponentBuilder() {
+      return new ViewCBuilder(singletonCImpl, activityRetainedCImpl, activityCImpl);
+    }
+  }
+
+  private static final class ViewModelCImpl extends TravelApplication_HiltComponents.ViewModelC {
+    private final SavedStateHandle savedStateHandle;
+
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl;
+
+    private final ViewModelCImpl viewModelCImpl = this;
+
+    private Provider<ExploreViewModel> exploreViewModelProvider;
+
+    private Provider<GalleryViewModel> galleryViewModelProvider;
+
+    private Provider<PlannerViewModel> plannerViewModelProvider;
+
+    private Provider<TranslatorViewModel> translatorViewModelProvider;
+
+    private ViewModelCImpl(SingletonCImpl singletonCImpl,
+        ActivityRetainedCImpl activityRetainedCImpl, SavedStateHandle savedStateHandleParam,
+        ViewModelLifecycle viewModelLifecycleParam) {
+      this.singletonCImpl = singletonCImpl;
+      this.activityRetainedCImpl = activityRetainedCImpl;
+      this.savedStateHandle = savedStateHandleParam;
+      initialize(savedStateHandleParam, viewModelLifecycleParam);
+
+    }
+
+    private GetPopularCitiesUseCase getPopularCitiesUseCase() {
+      return new GetPopularCitiesUseCase(singletonCImpl.offlineFirstCityRepositoryProvider.get());
+    }
+
+    private GetRecentSearchesUseCase getRecentSearchesUseCase() {
+      return new GetRecentSearchesUseCase(singletonCImpl.offlineFirstCityRepositoryProvider.get());
+    }
+
+    private SearchCityWithAiUseCase searchCityWithAiUseCase() {
+      return new SearchCityWithAiUseCase(singletonCImpl.offlineFirstCityRepositoryProvider.get(), singletonCImpl.firebaseAiCityServiceProvider.get());
+    }
+
+    private GenerateImageUseCase generateImageUseCase() {
+      return new GenerateImageUseCase(singletonCImpl.firebaseAiImageServiceProvider.get());
+    }
+
+    private GenerateTravelPlanUseCase generateTravelPlanUseCase() {
+      return new GenerateTravelPlanUseCase(singletonCImpl.firebaseAiPlannerServiceProvider.get());
+    }
+
+    private SaveTravelPlanUseCase saveTravelPlanUseCase() {
+      return new SaveTravelPlanUseCase(singletonCImpl.offlineFirstTravelPlanRepositoryProvider.get());
+    }
+
+    private TranslateTextUseCase translateTextUseCase() {
+      return new TranslateTextUseCase(singletonCImpl.hybridAiTextServiceProvider.get());
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final SavedStateHandle savedStateHandleParam,
+        final ViewModelLifecycle viewModelLifecycleParam) {
+      this.exploreViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
+      this.galleryViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
+      this.plannerViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
+      this.translatorViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
+    }
+
+    @Override
+    public Map<Class<?>, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
+      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(MapBuilder.<String, javax.inject.Provider<ViewModel>>newMapBuilder(4).put(ExploreViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) exploreViewModelProvider)).put(GalleryViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) galleryViewModelProvider)).put(PlannerViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) plannerViewModelProvider)).put(TranslatorViewModel_HiltModules_BindsModule_Binds_LazyMapKey.lazyClassKeyName, ((Provider) translatorViewModelProvider)).build());
+    }
+
+    @Override
+    public Map<Class<?>, Object> getHiltViewModelAssistedMap() {
+      return Collections.<Class<?>, Object>emptyMap();
+    }
+
+    private static final class SwitchingProvider<T> implements Provider<T> {
+      private final SingletonCImpl singletonCImpl;
+
+      private final ActivityRetainedCImpl activityRetainedCImpl;
+
+      private final ViewModelCImpl viewModelCImpl;
+
+      private final int id;
+
+      SwitchingProvider(SingletonCImpl singletonCImpl, ActivityRetainedCImpl activityRetainedCImpl,
+          ViewModelCImpl viewModelCImpl, int id) {
+        this.singletonCImpl = singletonCImpl;
+        this.activityRetainedCImpl = activityRetainedCImpl;
+        this.viewModelCImpl = viewModelCImpl;
+        this.id = id;
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      public T get() {
+        switch (id) {
+          case 0: // com.travel.companion.feature.explore.ExploreViewModel 
+          return (T) new ExploreViewModel(viewModelCImpl.getPopularCitiesUseCase(), viewModelCImpl.getRecentSearchesUseCase(), viewModelCImpl.searchCityWithAiUseCase(), singletonCImpl.offlineFirstCityRepositoryProvider.get());
+
+          case 1: // com.travel.companion.feature.gallery.GalleryViewModel 
+          return (T) new GalleryViewModel(viewModelCImpl.generateImageUseCase(), singletonCImpl.offlineFirstGeneratedImageRepositoryProvider.get());
+
+          case 2: // com.travel.companion.feature.planner.PlannerViewModel 
+          return (T) new PlannerViewModel(viewModelCImpl.savedStateHandle, viewModelCImpl.generateTravelPlanUseCase(), viewModelCImpl.saveTravelPlanUseCase(), singletonCImpl.offlineFirstCityRepositoryProvider.get(), new FakeVoiceAssistantService());
+
+          case 3: // com.travel.companion.feature.translator.TranslatorViewModel 
+          return (T) new TranslatorViewModel(viewModelCImpl.translateTextUseCase(), singletonCImpl.offlineFirstTranslationHistoryRepositoryProvider.get());
+
+          default: throw new AssertionError(id);
+        }
+      }
+    }
+  }
+
+  private static final class ActivityRetainedCImpl extends TravelApplication_HiltComponents.ActivityRetainedC {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ActivityRetainedCImpl activityRetainedCImpl = this;
+
+    private Provider<ActivityRetainedLifecycle> provideActivityRetainedLifecycleProvider;
+
+    private ActivityRetainedCImpl(SingletonCImpl singletonCImpl,
+        SavedStateHandleHolder savedStateHandleHolderParam) {
+      this.singletonCImpl = singletonCImpl;
+
+      initialize(savedStateHandleHolderParam);
+
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final SavedStateHandleHolder savedStateHandleHolderParam) {
+      this.provideActivityRetainedLifecycleProvider = DoubleCheck.provider(new SwitchingProvider<ActivityRetainedLifecycle>(singletonCImpl, activityRetainedCImpl, 0));
+    }
+
+    @Override
+    public ActivityComponentBuilder activityComponentBuilder() {
+      return new ActivityCBuilder(singletonCImpl, activityRetainedCImpl);
+    }
+
+    @Override
+    public ActivityRetainedLifecycle getActivityRetainedLifecycle() {
+      return provideActivityRetainedLifecycleProvider.get();
+    }
+
+    private static final class SwitchingProvider<T> implements Provider<T> {
+      private final SingletonCImpl singletonCImpl;
+
+      private final ActivityRetainedCImpl activityRetainedCImpl;
+
+      private final int id;
+
+      SwitchingProvider(SingletonCImpl singletonCImpl, ActivityRetainedCImpl activityRetainedCImpl,
+          int id) {
+        this.singletonCImpl = singletonCImpl;
+        this.activityRetainedCImpl = activityRetainedCImpl;
+        this.id = id;
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      public T get() {
+        switch (id) {
+          case 0: // dagger.hilt.android.ActivityRetainedLifecycle 
+          return (T) ActivityRetainedComponentManager_LifecycleModule_ProvideActivityRetainedLifecycleFactory.provideActivityRetainedLifecycle();
+
+          default: throw new AssertionError(id);
+        }
+      }
+    }
+  }
+
+  private static final class ServiceCImpl extends TravelApplication_HiltComponents.ServiceC {
+    private final SingletonCImpl singletonCImpl;
+
+    private final ServiceCImpl serviceCImpl = this;
+
+    private ServiceCImpl(SingletonCImpl singletonCImpl, Service serviceParam) {
+      this.singletonCImpl = singletonCImpl;
+
+
+    }
+  }
+
+  private static final class SingletonCImpl extends TravelApplication_HiltComponents.SingletonC {
+    private final ApplicationContextModule applicationContextModule;
+
+    private final SingletonCImpl singletonCImpl = this;
+
+    private Provider<TravelDatabase> provideDatabaseProvider;
+
+    private Provider<CityPrepopulator> cityPrepopulatorProvider;
+
+    private Provider<OfflineFirstCityRepository> offlineFirstCityRepositoryProvider;
+
+    private Provider<FirebaseAiCityService> firebaseAiCityServiceProvider;
+
+    private Provider<FirebaseAiImageService> firebaseAiImageServiceProvider;
+
+    private Provider<OfflineFirstGeneratedImageRepository> offlineFirstGeneratedImageRepositoryProvider;
+
+    private Provider<FirebaseAiPlannerService> firebaseAiPlannerServiceProvider;
+
+    private Provider<OfflineFirstTravelPlanRepository> offlineFirstTravelPlanRepositoryProvider;
+
+    private Provider<FeatureAvailabilityChecker> featureAvailabilityCheckerProvider;
+
+    private Provider<HybridAiTextService> hybridAiTextServiceProvider;
+
+    private Provider<OfflineFirstTranslationHistoryRepository> offlineFirstTranslationHistoryRepositoryProvider;
+
+    private SingletonCImpl(ApplicationContextModule applicationContextModuleParam) {
+      this.applicationContextModule = applicationContextModuleParam;
+      initialize(applicationContextModuleParam);
+
+    }
+
+    private CityDao cityDao() {
+      return DatabaseModule_ProvideCityDaoFactory.provideCityDao(provideDatabaseProvider.get());
+    }
+
+    private GeneratedImageDao generatedImageDao() {
+      return DatabaseModule_ProvideGeneratedImageDaoFactory.provideGeneratedImageDao(provideDatabaseProvider.get());
+    }
+
+    private TravelPlanDao travelPlanDao() {
+      return DatabaseModule_ProvideTravelPlanDaoFactory.provideTravelPlanDao(provideDatabaseProvider.get());
+    }
+
+    private TranslationHistoryDao translationHistoryDao() {
+      return DatabaseModule_ProvideTranslationHistoryDaoFactory.provideTranslationHistoryDao(provideDatabaseProvider.get());
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final ApplicationContextModule applicationContextModuleParam) {
+      this.provideDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<TravelDatabase>(singletonCImpl, 1));
+      this.cityPrepopulatorProvider = DoubleCheck.provider(new SwitchingProvider<CityPrepopulator>(singletonCImpl, 2));
+      this.offlineFirstCityRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<OfflineFirstCityRepository>(singletonCImpl, 0));
+      this.firebaseAiCityServiceProvider = DoubleCheck.provider(new SwitchingProvider<FirebaseAiCityService>(singletonCImpl, 3));
+      this.firebaseAiImageServiceProvider = DoubleCheck.provider(new SwitchingProvider<FirebaseAiImageService>(singletonCImpl, 4));
+      this.offlineFirstGeneratedImageRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<OfflineFirstGeneratedImageRepository>(singletonCImpl, 5));
+      this.firebaseAiPlannerServiceProvider = DoubleCheck.provider(new SwitchingProvider<FirebaseAiPlannerService>(singletonCImpl, 6));
+      this.offlineFirstTravelPlanRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<OfflineFirstTravelPlanRepository>(singletonCImpl, 7));
+      this.featureAvailabilityCheckerProvider = DoubleCheck.provider(new SwitchingProvider<FeatureAvailabilityChecker>(singletonCImpl, 9));
+      this.hybridAiTextServiceProvider = DoubleCheck.provider(new SwitchingProvider<HybridAiTextService>(singletonCImpl, 8));
+      this.offlineFirstTranslationHistoryRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<OfflineFirstTranslationHistoryRepository>(singletonCImpl, 10));
+    }
+
+    @Override
+    public void injectTravelApplication(TravelApplication arg0) {
+    }
+
+    @Override
+    public Set<Boolean> getDisableFragmentGetContextFix() {
+      return Collections.<Boolean>emptySet();
+    }
+
+    @Override
+    public ActivityRetainedComponentBuilder retainedComponentBuilder() {
+      return new ActivityRetainedCBuilder(singletonCImpl);
+    }
+
+    @Override
+    public ServiceComponentBuilder serviceComponentBuilder() {
+      return new ServiceCBuilder(singletonCImpl);
+    }
+
+    private static final class SwitchingProvider<T> implements Provider<T> {
+      private final SingletonCImpl singletonCImpl;
+
+      private final int id;
+
+      SwitchingProvider(SingletonCImpl singletonCImpl, int id) {
+        this.singletonCImpl = singletonCImpl;
+        this.id = id;
+      }
+
+      @SuppressWarnings("unchecked")
+      @Override
+      public T get() {
+        switch (id) {
+          case 0: // com.travel.companion.core.data.repository.OfflineFirstCityRepository 
+          return (T) new OfflineFirstCityRepository(singletonCImpl.cityDao(), singletonCImpl.cityPrepopulatorProvider.get());
+
+          case 1: // com.travel.companion.core.database.TravelDatabase 
+          return (T) DatabaseModule_ProvideDatabaseFactory.provideDatabase(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 2: // com.travel.companion.core.data.prepopulate.CityPrepopulator 
+          return (T) new CityPrepopulator(singletonCImpl.cityDao(), ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule), DispatchersModule_ProvideIoDispatcherFactory.provideIoDispatcher());
+
+          case 3: // com.travel.companion.core.ai.firebase.FirebaseAiCityService 
+          return (T) new FirebaseAiCityService();
+
+          case 4: // com.travel.companion.core.ai.firebase.FirebaseAiImageService 
+          return (T) new FirebaseAiImageService();
+
+          case 5: // com.travel.companion.core.data.repository.OfflineFirstGeneratedImageRepository 
+          return (T) new OfflineFirstGeneratedImageRepository(singletonCImpl.generatedImageDao(), ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule), DispatchersModule_ProvideIoDispatcherFactory.provideIoDispatcher());
+
+          case 6: // com.travel.companion.core.ai.firebase.FirebaseAiPlannerService 
+          return (T) new FirebaseAiPlannerService();
+
+          case 7: // com.travel.companion.core.data.repository.OfflineFirstTravelPlanRepository 
+          return (T) new OfflineFirstTravelPlanRepository(singletonCImpl.travelPlanDao(), DispatchersModule_ProvideIoDispatcherFactory.provideIoDispatcher());
+
+          case 8: // com.travel.companion.core.ai.ondevice.HybridAiTextService 
+          return (T) new HybridAiTextService(singletonCImpl.featureAvailabilityCheckerProvider.get());
+
+          case 9: // com.travel.companion.core.ai.ondevice.FeatureAvailabilityChecker 
+          return (T) new FeatureAvailabilityChecker();
+
+          case 10: // com.travel.companion.core.data.repository.OfflineFirstTranslationHistoryRepository 
+          return (T) new OfflineFirstTranslationHistoryRepository(singletonCImpl.translationHistoryDao(), DispatchersModule_ProvideIoDispatcherFactory.provideIoDispatcher());
+
+          default: throw new AssertionError(id);
+        }
+      }
+    }
+  }
+}

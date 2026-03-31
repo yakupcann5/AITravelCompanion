@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="translator_clear_button_desc">Temizle</string>
+    <string name="translator_clear_history_button">Temizle</string>
+    <string name="translator_copied_snackbar">Panoya kopyalandi</string>
+    <string name="translator_copy_button_desc">Kopyala</string>
+    <string name="translator_error_dismiss_desc">Hatayı kapat</string>
+    <string name="translator_error_failed">Ceviri basarisiz</string>
+    <string name="translator_history_title">Gecmis</string>
+    <string name="translator_input_placeholder">Cevirilecek metni girin…</string>
+    <string name="translator_swap_languages_desc">Dilleri degistir</string>
+    <string name="translator_title">Ceviri</string>
+    <string name="translator_translate_button">Cevir</string>
+</resources>

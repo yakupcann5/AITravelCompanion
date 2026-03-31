@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2026-03-28T22:36:36.355Z" hostname="Yakups-MacBook-Pro-5.local" time="0.596">
+  <properties/>
+  <testcase name="AiPlaceResponse toDomain generates id from name" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.123"/>
+  <testcase name="parseCategory returns RESTAURANT for Turkish restoran" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="AiTravelPlanResponse toDomain maps cityName budget and interests" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.245"/>
+  <testcase name="parseCategory returns MUSEUM for museum" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="Budget LOW toTurkish returns dusuk" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.001"/>
+  <testcase name="parseCategory returns RESTAURANT for restaurant" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="AiTravelPlanResponse full JSON deserialization" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.057"/>
+  <testcase name="Budget HIGH toTurkish returns yuksek" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.001"/>
+  <testcase name="parseCategory returns NIGHTLIFE for nightlife" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="parseCategory returns SHOPPING for shopping" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.001"/>
+  <testcase name="parseCategory returns SHOPPING for Turkish alisveris" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="AiTravelPlanResponse ignores unknown JSON keys" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.151"/>
+  <testcase name="Budget LUXURY toTurkish returns luks" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.001"/>
+  <testcase name="AiRestaurantResponse deserializes correctly" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.006"/>
+  <testcase name="parseCategory returns PARK for park" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.001"/>
+  <testcase name="AiTravelPlanResponse toDomain generates cityId from city name" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="AiDayPlanResponse toDomain maps places" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="parseCategory returns ATTRACTION for unknown input" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.001"/>
+  <testcase name="Budget MEDIUM toTurkish returns orta" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="parseCategory is case insensitive" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.001"/>
+  <testcase name="AiDayPlanResponse toDomain sets correct dayIndex" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="parseCategory returns HOTEL for hotel" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="AiPlaceResponse toDomain maps all fields" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <testcase name="AiPlaceResponse toDomain uses defaults for optional fields" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.001"/>
+  <testcase name="parseCategory returns MUSEUM for Turkish muze" classname="com.travel.companion.core.ai.firebase.FirebaseAiPlannerMappingTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

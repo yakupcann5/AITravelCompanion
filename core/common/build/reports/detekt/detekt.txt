@@ -1,0 +1,1 @@
+SpreadOperator - [asString] at /Users/yakupcan/AndroidStudioProjects/AI/core/common/src/main/kotlin/com/travel/companion/core/common/UiText.kt:23:47 - Signature=UiText.kt$UiText$(resId, *args.toTypedArray())

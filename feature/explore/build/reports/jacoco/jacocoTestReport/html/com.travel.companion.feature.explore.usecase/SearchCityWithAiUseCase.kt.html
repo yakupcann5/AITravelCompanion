@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="tr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SearchCityWithAiUseCase.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">explore</a> &gt; <a href="index.source.html" class="el_package">com.travel.companion.feature.explore.usecase</a> &gt; <span class="el_source">SearchCityWithAiUseCase.kt</span></div><h1>SearchCityWithAiUseCase.kt</h1><pre class="source lang-java linenums">package com.travel.companion.feature.explore.usecase
+
+import com.travel.companion.core.ai.AiCityService
+import com.travel.companion.core.data.repository.CityRepository
+import com.travel.companion.core.model.City
+import javax.inject.Inject
+
+/**
+ * AI ile sehir arama is mantigi use case'i.
+ *
+ * @author Yakup Can
+ * @date 2026-03-27
+ */
+<span class="fc" id="L14">class SearchCityWithAiUseCase @Inject constructor(</span>
+<span class="fc" id="L15">    private val cityRepository: CityRepository,</span>
+<span class="fc" id="L16">    private val aiCityService: AiCityService,</span>
+) {
+<span class="pc" id="L18">    suspend operator fun invoke(cityName: String): Result&lt;City&gt; {</span>
+<span class="fc" id="L19">        val cached = cityRepository.searchCityByName(cityName)</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (cached != null) return Result.success(cached)</span>
+
+<span class="pc bpc" id="L22" title="1 of 4 branches missed.">        return aiCityService.searchCity(cityName).onSuccess { city -&gt;</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">            cityRepository.insertCityFromAi(city)</span>
+<span class="fc" id="L24">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

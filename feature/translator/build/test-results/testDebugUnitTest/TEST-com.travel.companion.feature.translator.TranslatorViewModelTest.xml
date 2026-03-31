@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.travel.companion.feature.translator.TranslatorViewModelTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-03-31T09:08:06.016Z" hostname="Yakups-MacBook-Pro-5.local" time="7.001">
+  <properties/>
+  <testcase name="CopyResult emits CopiedToClipboard" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="6.468"/>
+  <testcase name="Translate with success updates targetText" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.04"/>
+  <testcase name="Translate success saves to repository" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.336"/>
+  <testcase name="SwapLanguages swaps langs and texts" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.015"/>
+  <testcase name="SourceLangChanged updates sourceLang" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.008"/>
+  <testcase name="Translate with failure emits ShowSnackbar effect" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.027"/>
+  <testcase name="InputTextChanged updates sourceText" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.009"/>
+  <testcase name="SelectHistoryItem updates all state fields" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.018"/>
+  <testcase name="TargetLangChanged updates targetLang" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.008"/>
+  <testcase name="Translate with blank text does nothing" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.01"/>
+  <testcase name="ClearAll resets state" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.012"/>
+  <testcase name="LoadHistory populates history from repository" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.013"/>
+  <testcase name="ClearHistory delegates to repository" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.021"/>
+  <testcase name="Translate with failure sets error" classname="com.travel.companion.feature.translator.TranslatorViewModelTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

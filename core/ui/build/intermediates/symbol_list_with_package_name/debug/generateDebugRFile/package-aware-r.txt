@@ -1,0 +1,2 @@
+com.travel.companion.core.ui
+string common_retry_button

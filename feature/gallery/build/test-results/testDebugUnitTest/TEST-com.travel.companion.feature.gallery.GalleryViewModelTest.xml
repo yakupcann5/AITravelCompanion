@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.travel.companion.feature.gallery.GalleryViewModelTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-03-31T09:08:10.203Z" hostname="Yakups-MacBook-Pro-5.local" time="5.82">
+  <properties/>
+  <testcase name="ToggleFavorite calls repository updateFavorite" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="5.523"/>
+  <testcase name="GenerateImage with success calls repository saveGeneratedImage" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.058"/>
+  <testcase name="GenerateImage with failure sets isGenerating to false" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.011"/>
+  <testcase name="PromptChanged updates prompt" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.009"/>
+  <testcase name="LoadImages loads images from repository" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.007"/>
+  <testcase name="ShareImage emits ShareImage effect" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.132"/>
+  <testcase name="LoadImages when repository is empty calls upsertImage for samples" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.045"/>
+  <testcase name="GenerateImage with blank prompt does nothing" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.007"/>
+  <testcase name="GenerateImage with failure emits ShowSnackbar effect" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.009"/>
+  <testcase name="SelectImage and ClearSelection" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.005"/>
+  <testcase name="GenerateImage with success emits ImageSaved effect" classname="com.travel.companion.feature.gallery.GalleryViewModelTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

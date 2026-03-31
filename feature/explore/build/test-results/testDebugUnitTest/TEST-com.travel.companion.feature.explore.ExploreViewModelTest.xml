@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.travel.companion.feature.explore.ExploreViewModelTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-03-31T09:27:52.946Z" hostname="Yakups-MacBook-Pro-5.local" time="6.572">
+  <properties/>
+  <testcase name="ShowCityDetail updates detailCityId" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="5.965"/>
+  <testcase name="init loads popular cities and recent searches" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.023"/>
+  <testcase name="filteredPopularCities returns empty when no query match" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.028"/>
+  <testcase name="SearchQueryChanged updates search query and clears search result" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.025"/>
+  <testcase name="DismissCityDetail clears detailCityId" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.024"/>
+  <testcase name="SubmitSearch with successful result updates searchResult" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.226"/>
+  <testcase name="SubmitSearch with blank query does nothing" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.016"/>
+  <testcase name="filteredPopularCities filters by name" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.015"/>
+  <testcase name="SubmitSearch with error updates error state and emits snackbar effect" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.223"/>
+  <testcase name="CityClicked emits NavigateToPlanner effect" classname="com.travel.companion.feature.explore.ExploreViewModelTest" time="0.022"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

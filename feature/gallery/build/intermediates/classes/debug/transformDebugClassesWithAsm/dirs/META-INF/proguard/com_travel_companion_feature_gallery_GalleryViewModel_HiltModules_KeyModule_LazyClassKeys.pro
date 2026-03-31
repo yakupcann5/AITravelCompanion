@@ -1,0 +1,1 @@
+-keep,allowobfuscation,allowshrinking class com.travel.companion.feature.gallery.GalleryViewModel

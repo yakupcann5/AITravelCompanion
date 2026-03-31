@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Travel Companion</string>
+    <string name="tab_explore">Kesfet</string>
+    <string name="tab_planner">Planla</string>
+    <string name="tab_translator">Ceviri</string>
+    <string name="tab_gallery">Galeri</string>
+</resources>

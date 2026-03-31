@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="tr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExploreScreen.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">explore</a> &gt; <a href="index.source.html" class="el_package">com.travel.companion.feature.explore</a> &gt; <span class="el_source">ExploreScreen.kt</span></div><h1>ExploreScreen.kt</h1><pre class="source lang-java linenums">package com.travel.companion.feature.explore
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridScope
+import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
+import androidx.compose.foundation.lazy.staggeredgrid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
+import androidx.compose.material3.adaptive.layout.AnimatedPane
+import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffold
+import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffoldRole
+import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaffoldNavigator
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.unit.dp
+import androidx.window.core.layout.WindowWidthSizeClass
+import com.travel.companion.core.model.City
+import com.travel.companion.core.ui.CityCard
+import com.travel.companion.core.ui.LoadingIndicator
+import kotlinx.coroutines.launch
+
+/**
+ * Kesfet ekrani Compose UI.
+ *
+ * @author Yakup Can
+ * @date 2026-03-27
+ */
+@Composable
+internal fun ExploreScreen(
+    state: ExploreState,
+    onIntent: (ExploreIntent) -&gt; Unit,
+<span class="nc bnc" id="L53" title="All 2 branches missed.">    modifier: Modifier = Modifier,</span>
+<span class="nc bnc" id="L54" title="All 24 branches missed.">) {</span>
+<span class="nc" id="L55">    when {</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        state.isLoading -&gt; LoadingIndicator(modifier)</span>
+<span class="nc bnc" id="L57" title="All 4 branches missed.">        else -&gt; ExploreContent(state = state, onIntent = onIntent, modifier = modifier)</span>
+    }
+<span class="nc" id="L59">}</span>
+
+@OptIn(ExperimentalMaterial3AdaptiveApi::class)
+@Composable
+private fun ExploreContent(
+    state: ExploreState,
+    onIntent: (ExploreIntent) -&gt; Unit,
+<span class="nc bnc" id="L66" title="All 2 branches missed.">    modifier: Modifier = Modifier,</span>
+<span class="nc bnc" id="L67" title="All 24 branches missed.">) {</span>
+<span class="nc" id="L68">    val windowWidth = currentWindowAdaptiveInfo().windowSizeClass.windowWidthSizeClass</span>
+<span class="nc" id="L69">    val isExpanded = windowWidth == WindowWidthSizeClass.EXPANDED</span>
+
+<span class="nc bnc" id="L71" title="All 2 branches missed.">    if (isExpanded) {</span>
+<span class="nc" id="L72">        ExpandedExploreLayout(state = state, onIntent = onIntent, modifier = modifier)</span>
+<span class="nc bnc" id="L73" title="All 4 branches missed.">    } else {</span>
+<span class="nc" id="L74">        CityGrid(</span>
+<span class="nc" id="L75">            state = state,</span>
+<span class="nc" id="L76">            onIntent = onIntent,</span>
+<span class="nc bnc" id="L77" title="All 4 branches missed.">            columns = if (windowWidth == WindowWidthSizeClass.COMPACT) 2 else 3,</span>
+<span class="nc" id="L78">            onCityClick = { cityId -&gt; onIntent(ExploreIntent.CityClicked(cityId)) },</span>
+<span class="nc" id="L79">            modifier = modifier,</span>
+        )
+    }
+<span class="nc" id="L82">}</span>
+
+@OptIn(ExperimentalMaterial3AdaptiveApi::class)
+@Composable
+private fun ExpandedExploreLayout(
+    state: ExploreState,
+    onIntent: (ExploreIntent) -&gt; Unit,
+<span class="nc bnc" id="L89" title="All 2 branches missed.">    modifier: Modifier = Modifier,</span>
+<span class="nc bnc" id="L90" title="All 24 branches missed.">) {</span>
+<span class="nc" id="L91">    val navigator = rememberListDetailPaneScaffoldNavigator&lt;String&gt;()</span>
+<span class="nc" id="L92">    val scope = rememberCoroutineScope()</span>
+
+<span class="nc bnc" id="L94" title="All 4 branches missed.">    ListDetailPaneScaffold(</span>
+<span class="nc" id="L95">        directive = navigator.scaffoldDirective,</span>
+<span class="nc" id="L96">        value = navigator.scaffoldValue,</span>
+<span class="nc" id="L97">        listPane = {</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">            AnimatedPane {</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">                CityGrid(</span>
+<span class="nc" id="L100">                    state = state,</span>
+<span class="nc" id="L101">                    onIntent = onIntent,</span>
+<span class="nc" id="L102">                    columns = 3,</span>
+<span class="nc" id="L103">                    onCityClick = { cityId -&gt;</span>
+<span class="nc" id="L104">                        onIntent(ExploreIntent.ShowCityDetail(cityId))</span>
+<span class="nc" id="L105">                        scope.launch {</span>
+<span class="nc" id="L106">                            navigator.navigateTo(ListDetailPaneScaffoldRole.Detail, cityId)</span>
+<span class="nc" id="L107">                        }</span>
+<span class="nc" id="L108">                    },</span>
+<span class="nc" id="L109">                    modifier = Modifier.fillMaxSize(),</span>
+                )
+<span class="nc" id="L111">            }</span>
+<span class="nc" id="L112">        },</span>
+<span class="nc" id="L113">        detailPane = {</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">            AnimatedPane {</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">                CityDetailPane(</span>
+<span class="nc" id="L116">                    city = state.detailCity,</span>
+<span class="nc" id="L117">                    modifier = Modifier.fillMaxSize(),</span>
+                )
+<span class="nc" id="L119">            }</span>
+<span class="nc" id="L120">        },</span>
+<span class="nc" id="L121">        modifier = modifier,</span>
+    )
+<span class="nc" id="L123">}</span>
+
+@Composable
+private fun CityGrid(
+    state: ExploreState,
+    onIntent: (ExploreIntent) -&gt; Unit,
+    columns: Int,
+    onCityClick: (String) -&gt; Unit,
+<span class="nc bnc" id="L131" title="All 2 branches missed.">    modifier: Modifier = Modifier,</span>
+<span class="nc bnc" id="L132" title="All 36 branches missed.">) {</span>
+<span class="nc bnc" id="L133" title="All 4 branches missed.">    LazyVerticalStaggeredGrid(</span>
+<span class="nc" id="L134">        columns = StaggeredGridCells.Fixed(columns),</span>
+<span class="nc" id="L135">        modifier = modifier,</span>
+<span class="nc" id="L136">        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),</span>
+<span class="nc bnc" id="L137" title="All 4 branches missed.">        horizontalArrangement = Arrangement.spacedBy(12.dp),</span>
+<span class="nc" id="L138">        verticalItemSpacing = 12.dp,</span>
+<span class="nc" id="L139">    ) {</span>
+<span class="nc" id="L140">        headerSection()</span>
+<span class="nc" id="L141">        searchBarSection(state, onIntent)</span>
+<span class="nc" id="L142">        searchResultSection(state, onCityClick)</span>
+<span class="nc" id="L143">        errorSection(state.error)</span>
+<span class="nc" id="L144">        recentSearchesSection(state.recentSearches, onCityClick)</span>
+<span class="nc" id="L145">        popularCitiesSection(state.filteredPopularCities, onCityClick)</span>
+<span class="nc" id="L146">    }</span>
+<span class="nc" id="L147">}</span>
+
+private fun LazyStaggeredGridScope.headerSection() {
+<span class="nc" id="L150">    item(span = StaggeredGridItemSpan.FullLine) {</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        Text(</span>
+<span class="nc" id="L152">            text = stringResource(R.string.explore_title),</span>
+<span class="nc" id="L153">            style = MaterialTheme.typography.headlineLarge,</span>
+<span class="nc" id="L154">            modifier = Modifier.padding(vertical = 8.dp),</span>
+        )
+<span class="nc" id="L156">    }</span>
+<span class="nc" id="L157">}</span>
+
+private fun LazyStaggeredGridScope.searchBarSection(
+    state: ExploreState,
+    onIntent: (ExploreIntent) -&gt; Unit,
+) {
+<span class="nc" id="L163">    item(span = StaggeredGridItemSpan.FullLine) {</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">        OutlinedTextField(</span>
+<span class="nc" id="L165">            value = state.searchQuery,</span>
+<span class="nc" id="L166">            onValueChange = { onIntent(ExploreIntent.SearchQueryChanged(it)) },</span>
+<span class="nc" id="L167">            modifier = Modifier.fillMaxWidth(),</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">            placeholder = { Text(stringResource(R.string.explore_search_placeholder)) },</span>
+<span class="nc" id="L169">            singleLine = true,</span>
+<span class="nc" id="L170">            shape = RoundedCornerShape(12.dp),</span>
+<span class="nc" id="L171">            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),</span>
+<span class="nc" id="L172">            keyboardActions = KeyboardActions(onSearch = { onIntent(ExploreIntent.SubmitSearch) }),</span>
+<span class="nc" id="L173">            trailingIcon = {</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">                if (state.isSearching) {</span>
+<span class="nc" id="L175">                    CircularProgressIndicator(Modifier.size(24.dp))</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">                } else {</span>
+<span class="nc" id="L177">                    IconButton(onClick = { onIntent(ExploreIntent.SubmitSearch) }) {</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">                        Icon(Icons.Default.Search, contentDescription = stringResource(R.string.explore_search_button_desc))</span>
+<span class="nc" id="L179">                    }</span>
+                }
+<span class="nc" id="L181">            },</span>
+        )
+<span class="nc" id="L183">    }</span>
+<span class="nc" id="L184">}</span>
+
+private fun LazyStaggeredGridScope.searchResultSection(
+    state: ExploreState,
+    onCityClick: (String) -&gt; Unit,
+) {
+<span class="nc bnc" id="L190" title="All 2 branches missed.">    val searchResult = state.searchResult ?: return</span>
+
+<span class="nc" id="L192">    item(span = StaggeredGridItemSpan.FullLine) {</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">        Text(</span>
+<span class="nc" id="L194">            text = stringResource(R.string.explore_search_result_title),</span>
+<span class="nc" id="L195">            style = MaterialTheme.typography.titleMedium,</span>
+<span class="nc" id="L196">            modifier = Modifier.padding(top = 8.dp),</span>
+        )
+<span class="nc" id="L198">    }</span>
+<span class="nc" id="L199">    item(span = StaggeredGridItemSpan.FullLine) {</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">        CityCard(</span>
+<span class="nc" id="L201">            city = searchResult,</span>
+<span class="nc" id="L202">            onClick = { onCityClick(searchResult.id) },</span>
+        )
+<span class="nc" id="L204">    }</span>
+<span class="nc" id="L205">}</span>
+
+private fun LazyStaggeredGridScope.errorSection(error: String?) {
+<span class="nc bnc" id="L208" title="All 2 branches missed.">    if (error == null) return</span>
+
+<span class="nc" id="L210">    item(span = StaggeredGridItemSpan.FullLine) {</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">        Text(</span>
+<span class="nc" id="L212">            text = error,</span>
+<span class="nc" id="L213">            color = MaterialTheme.colorScheme.error,</span>
+<span class="nc" id="L214">            style = MaterialTheme.typography.bodyMedium,</span>
+<span class="nc" id="L215">            modifier = Modifier.padding(vertical = 4.dp),</span>
+        )
+<span class="nc" id="L217">    }</span>
+<span class="nc" id="L218">}</span>
+
+private fun LazyStaggeredGridScope.recentSearchesSection(
+    recentSearches: List&lt;City&gt;,
+    onCityClick: (String) -&gt; Unit,
+) {
+<span class="nc bnc" id="L224" title="All 2 branches missed.">    if (recentSearches.isEmpty()) return</span>
+
+<span class="nc" id="L226">    item(span = StaggeredGridItemSpan.FullLine) {</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">        Text(</span>
+<span class="nc" id="L228">            text = stringResource(R.string.explore_recent_searches_title),</span>
+<span class="nc" id="L229">            style = MaterialTheme.typography.titleMedium,</span>
+<span class="nc" id="L230">            modifier = Modifier.padding(top = 8.dp),</span>
+        )
+<span class="nc" id="L232">    }</span>
+<span class="nc" id="L233">    items(items = recentSearches, key = { it.id }) { city -&gt;</span>
+<span class="nc" id="L234">        CityCard(city = city, onClick = { onCityClick(city.id) })</span>
+    }
+<span class="nc" id="L236">}</span>
+
+private fun LazyStaggeredGridScope.popularCitiesSection(
+    cities: List&lt;City&gt;,
+    onCityClick: (String) -&gt; Unit,
+) {
+<span class="nc" id="L242">    item(span = StaggeredGridItemSpan.FullLine) {</span>
+<span class="nc bnc" id="L243" title="All 2 branches missed.">        Text(</span>
+<span class="nc" id="L244">            text = stringResource(R.string.explore_popular_cities_title),</span>
+<span class="nc" id="L245">            style = MaterialTheme.typography.titleMedium,</span>
+<span class="nc" id="L246">            modifier = Modifier.padding(top = 8.dp),</span>
+        )
+<span class="nc" id="L248">    }</span>
+<span class="nc" id="L249">    items(items = cities, key = { it.id }) { city -&gt;</span>
+<span class="nc" id="L250">        CityCard(city = city, onClick = { onCityClick(city.id) })</span>
+    }
+<span class="nc" id="L252">}</span>
+
+@androidx.compose.ui.tooling.preview.Preview(showBackground = true)
+@Composable
+<span class="nc bnc" id="L256" title="All 6 branches missed.">private fun ExploreScreenPreview() {</span>
+<span class="nc bnc" id="L257" title="All 4 branches missed.">    com.travel.companion.core.designsystem.theme.TravelCompanionTheme {</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        ExploreScreen(</span>
+<span class="nc" id="L259">            state = ExploreState(</span>
+<span class="nc" id="L260">                popularCities = listOf(</span>
+<span class="nc" id="L261">                    City(&quot;1&quot;, &quot;Istanbul&quot;, &quot;Turkiye&quot;, &quot;Tarihi sehir&quot;, &quot;&quot;, 41.0, 28.9, listOf(&quot;Tarih&quot;)),</span>
+<span class="nc" id="L262">                    City(&quot;2&quot;, &quot;Paris&quot;, &quot;Fransa&quot;, &quot;Isiklar sehri&quot;, &quot;&quot;, 48.8, 2.3, listOf(&quot;Kultur&quot;)),</span>
+                ),
+            ),
+<span class="nc" id="L265">            onIntent = {},</span>
+        )
+<span class="nc" id="L267">    }</span>
+<span class="nc" id="L268">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

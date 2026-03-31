@@ -1,0 +1,31 @@
+HSPLcom/travel/companion/MainActivity;->onCreate(Landroid/os/Bundle;)V
+HSPLcom/travel/companion/TravelApplication;->onCreate()V
+HSPLcom/travel/companion/ui/TravelAppKt;->TravelApp(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+
+# Navigation
+HSPLcom/travel/companion/navigation/TravelNavHostKt;->**
+HSPLcom/travel/companion/navigation/NavigationStateKt;->**
+
+# Feature Screens - Explore
+HSPLcom/travel/companion/feature/explore/ExploreRouteKt;->**
+HSPLcom/travel/companion/feature/explore/ExploreScreenKt;->**
+
+# Feature Screens - Planner
+HSPLcom/travel/companion/feature/planner/PlannerRouteKt;->**
+HSPLcom/travel/companion/feature/planner/PlannerScreenKt;->**
+
+# Feature Screens - Translator
+HSPLcom/travel/companion/feature/translator/TranslatorRouteKt;->**
+HSPLcom/travel/companion/feature/translator/TranslatorScreenKt;->**
+
+# Feature Screens - Gallery
+HSPLcom/travel/companion/feature/gallery/GalleryRouteKt;->**
+HSPLcom/travel/companion/feature/gallery/GalleryScreenKt;->**
+
+# Core UI Components
+HSPLcom/travel/companion/core/ui/CityCardKt;->**
+HSPLcom/travel/companion/core/ui/LoadingIndicatorKt;->**
+HSPLcom/travel/companion/core/ui/ErrorScreenKt;->**
+
+# Design System
+HSPLcom/travel/companion/core/designsystem/theme/ThemeKt;->**

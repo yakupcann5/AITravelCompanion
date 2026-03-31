@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.travel.companion.core.ai.firebase.FirebaseAiCityMappingTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-03-28T22:36:36.955Z" hostname="Yakups-MacBook-Pro-5.local" time="0.018">
+  <properties/>
+  <testcase name="toDomain trims name and generates correct id" classname="com.travel.companion.core.ai.firebase.FirebaseAiCityMappingTest" time="0.01"/>
+  <testcase name="Full JSON to domain mapping end-to-end" classname="com.travel.companion.core.ai.firebase.FirebaseAiCityMappingTest" time="0.003"/>
+  <testcase name="AiCityResponse ignores unknown JSON keys" classname="com.travel.companion.core.ai.firebase.FirebaseAiCityMappingTest" time="0.002"/>
+  <testcase name="toDomain sets empty imageUrl" classname="com.travel.companion.core.ai.firebase.FirebaseAiCityMappingTest" time="0.0"/>
+  <testcase name="toDomain handles single word city name" classname="com.travel.companion.core.ai.firebase.FirebaseAiCityMappingTest" time="0.001"/>
+  <testcase name="AiCityResponse deserializes from JSON" classname="com.travel.companion.core.ai.firebase.FirebaseAiCityMappingTest" time="0.001"/>
+  <testcase name="toDomain maps all fields correctly" classname="com.travel.companion.core.ai.firebase.FirebaseAiCityMappingTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

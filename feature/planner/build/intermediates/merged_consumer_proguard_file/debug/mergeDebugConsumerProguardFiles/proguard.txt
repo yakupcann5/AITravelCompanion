@@ -1,0 +1,2 @@
+-keep,allowobfuscation,allowshrinking class com.travel.companion.feature.planner.PlannerViewModel
+-keep,allowobfuscation,allowshrinking class com.travel.companion.feature.planner.PlannerViewModel

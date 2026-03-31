@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planner_title">Gezi Planlayici</string>
+    <string name="planner_preferences_button_desc">Tercihler</string>
+    <string name="planner_voice_assistant_desc">Sesli asistan</string>
+    <string name="planner_save_button_desc">Kaydet</string>
+    <string name="planner_city_label">Sehir</string>
+    <string name="planner_city_placeholder">Istanbul, Paris, Tokyo…</string>
+    <string name="planner_budget_label">Butce</string>
+    <string name="planner_budget_icon_desc">Butce</string>
+    <string name="planner_duration_icon_desc">Sure</string>
+    <string name="planner_duration_days">%d gun</string>
+    <string name="planner_interests_label">Ilgi Alanlari</string>
+    <string name="planner_generate_button">AI ile Plan Olustur</string>
+    <string name="planner_generating_message">AI gezi planinizi olusturuyor…</string>
+    <string name="planner_generating_note">Bu islem birkac saniye surebilir</string>
+    <string name="planner_tab_itinerary">Plan</string>
+    <string name="planner_tab_map">Harita</string>
+    <string name="planner_day_label">%d. Gun</string>
+    <string name="planner_estimated_time_desc">Tahmini sure</string>
+    <string name="planner_rating_desc">Puan</string>
+    <string name="planner_empty_message">Henuz plan olusturulmadi</string>
+    <string name="planner_enter_preferences_button">Tercihlerini Gir</string>
+    <string name="planner_voice_title">Sesli Asistan</string>
+    <string name="planner_voice_prompt">Konusmaya baslamak icin mikrofona dokunun</string>
+    <string name="planner_voice_stop_desc">Durdur</string>
+    <string name="planner_voice_start_desc">Baslat</string>
+    <string name="planner_error_generation_failed">Plan olusturulamadi. Tekrar deneyin.</string>
+    <string name="planner_plan_saved">Plan kaydedildi</string>
+    <string name="planner_error_save_failed">Kaydetme basarisiz</string>
+</resources>

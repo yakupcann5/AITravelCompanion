@@ -1,0 +1,13 @@
+R_DEF: Internal format may change without notice
+local
+string translator_clear_button_desc
+string translator_clear_history_button
+string translator_copied_snackbar
+string translator_copy_button_desc
+string translator_error_dismiss_desc
+string translator_error_failed
+string translator_history_title
+string translator_input_placeholder
+string translator_swap_languages_desc
+string translator_title
+string translator_translate_button
